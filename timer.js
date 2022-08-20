@@ -12,19 +12,18 @@ class Timer {
     }
     //clicks start button, start method called
     this.startButton.addEventListener("click", this.start);
-
     this.pauseButton.addEventListener("click", this.pause);
   }
 
   start = () => {
     //check if defined first
     if (this.onStart) {
-      this.onStart();
+      this.onStart(this.timeRemaining);
     }
     //calls tick() every second, call it first so dont have to wait a full second before countdown
     this.tick();
     //this.timer allows it to be accessed elsewhere
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 20);
   };
 
   pause = () => {
@@ -39,9 +38,9 @@ class Timer {
       }
     } else {
       //how to call setter and getter
-      this.timeRemaining = this.timeRemaining - 1;
+      this.timeRemaining = this.timeRemaining - .02;
       if (this.onTick) {
-        this.onTick();
+        this.onTick(this.timeRemaining);
       }
     }
   };
@@ -53,6 +52,6 @@ class Timer {
   }
 
   set timeRemaining(time) {
-    this.durationInput.value = time;
+    this.durationInput.value = time.toFixed(2);
   }
 }
