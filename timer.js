@@ -38,7 +38,7 @@ class Timer {
       }
     } else {
       //how to call setter and getter
-      this.timeRemaining = this.timeRemaining - .02;
+      this.timeRemaining = this.timeRemaining - 0.02;
       if (this.onTick) {
         this.onTick(this.timeRemaining);
       }

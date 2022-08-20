@@ -29,6 +29,7 @@ body {
   border: none;
   font-size: 36px;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .timer button:focus {
