@@ -18,13 +18,15 @@ class Timer {
     this.interval = setInterval(this.tick, 1000);
   };
 
-  tick = () => {
-    console.log("tick");
-  };
-
   pause = () => {
     clearInterval(this.interval);
     console.log("timer paused");
+  };
+
+  tick = () => {
+    //parse float converts string to decimal
+    const timeRemaining = parseFloat(this.durationInput.value);
+    this.durationInput.value = timeRemaining - 1;
   };
 }
 // # is how to select ID's
