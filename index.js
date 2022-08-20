@@ -6,17 +6,25 @@ class Timer {
 
     //clicks start button, start method called
     this.startButton.addEventListener("click", this.start);
+
+    this.pauseButton.addEventListener("click", this.pause);
   }
 
   start = () => {
     console.log("timer started");
     //calls tick() every second, call it first so dont have to wait a full second before countdown
     this.tick();
-    setInterval(this.tick, 1000);
+    //this.timer allows it to be accessed elsewhere
+    this.interval = setInterval(this.tick, 1000);
   };
 
   tick = () => {
     console.log("tick");
+  };
+
+  pause = () => {
+    clearInterval(this.interval);
+    console.log("timer paused");
   };
 }
 // # is how to select ID's
