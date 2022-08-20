@@ -24,10 +24,19 @@ class Timer {
   };
 
   tick = () => {
-    //parse float converts string to decimal
-    const timeRemaining = parseFloat(this.durationInput.value);
-    this.durationInput.value = timeRemaining - 1;
+    //how to call setter and getter
+    this.timeRemaining = this.timeRemaining - 1
   };
+
+  //how to write getter, acts like variable
+  get timeRemaining() {
+    //parse float converts string to decimal
+    return parseFloat(this.durationInput.value);
+  }
+
+  set timeRemaining(time) {
+    this.durationInput.value = time;
+  }
 }
 // # is how to select ID's
 const durationInput = document.querySelector("#duration");
